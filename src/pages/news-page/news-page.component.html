@@ -1,0 +1,16 @@
+<div class="news-page-wrapper">
+  <div class="news-container">
+    <h2 class="news-title">{{ currentNewsDate()?.title }}</h2>
+    <div class="news-date">
+      {{ currentNewsDate()?.publishedDate | formatDateRu }}
+    </div>
+    <img
+      [src]="currentNewsDate()?.titleImageUrl"
+      [alt]="currentNewsDate()?.title"
+      class="news-image"
+    />
+    @if (safeHtml()) {
+    <p class="news-content" [innerHTML]="safeHtml()"></p>
+    }
+  </div>
+</div>

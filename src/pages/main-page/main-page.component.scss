@@ -1,0 +1,12 @@
+.main-page-wrapper {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.main-title {
+  font-size: 64px;
+  font-weight: var(--font-weight-bold);
+}
+
