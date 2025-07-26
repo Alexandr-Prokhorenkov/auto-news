@@ -1,0 +1,16 @@
+.header {
+  border-bottom: 1px solid var(--black-color-10);
+}
+
+.header-content {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+}

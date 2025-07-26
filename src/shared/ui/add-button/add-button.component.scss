@@ -1,0 +1,24 @@
+.plus-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--black-color-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    background-color: #444;
+  }
+
+  &:active {
+    background-color: #000;
+  }
+}

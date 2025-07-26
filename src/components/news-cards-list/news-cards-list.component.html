@@ -1,0 +1,19 @@
+<div class="news-cards-list">
+  @for (item of newsList(); track item.id) {
+  <app-news-card
+    [titleImageUrl]="item.titleImageUrl"
+    [publishedDate]="item.publishedDate"
+    [title]="item.title"
+    [id]="item.id"
+    [Url]="item.url"
+  />
+  }
+</div>
+
+@if(isLoading()) {
+<div class="loading" *ngIf="isLoading()">
+  <div class="spinner"></div>
+</div>
+}
+
+<div #loadTrigger class="scroll-trigger"></div>

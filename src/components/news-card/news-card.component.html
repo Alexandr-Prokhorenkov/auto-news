@@ -1,0 +1,7 @@
+<a [routerLink]="['/news', id]" [queryParams]="{ Url }" class="news-card">
+  <img [src]="titleImageUrl" alt="Новость" class="news-image" />
+  <div class="news-meta">
+    <div class="news-date">{{ publishedDate | formatDateRu }}</div>
+    <div class="news-title">{{ title }}</div>
+  </div>
+</a>
