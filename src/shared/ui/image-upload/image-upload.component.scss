@@ -1,0 +1,56 @@
+.upload-container {
+  border: 1px dashed var(--link-color);
+  color: var(--link-color);
+  border-radius: 50px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: var(--bg-color);
+  transition: background-color 0.2s ease;
+
+  &.dragover {
+    background-color: #e0eaff;
+    border-color: var(--link-color-hover);
+  }
+
+  &:hover {
+    background-color: #e8e8e8;
+  }
+}
+
+.image-preview {
+  position: relative;
+  width: 210px;
+  object-fit: cover;
+  border: 1px dotted var(--link-color);
+  border-radius: 16px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  .remove-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: black;
+    color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .remove-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

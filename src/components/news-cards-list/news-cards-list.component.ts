@@ -13,16 +13,26 @@ import { NewsService } from '../../shared/api/services/news.service';
 import { NewsItem } from '../../shared/types/news.interface';
 import { map } from 'rxjs';
 import { NewsCardComponent } from '../news-card/news-card.component';
+import { SpinnerComponent } from '../../shared/ui/spinner/spinner.component';
+import { FormatDateRuPipe } from '../../shared/lib/format-date-ru.pipe';
+import { LocalNewsService } from '../../shared/stories/local-news.service';
 
 @Component({
   selector: 'app-news-cards-list',
   standalone: true,
-  imports: [CommonModule, NewsCardComponent],
+  imports: [
+    CommonModule,
+    NewsCardComponent,
+    SpinnerComponent,
+    FormatDateRuPipe,
+  ],
   templateUrl: './news-cards-list.component.html',
   styleUrl: './news-cards-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsCardsListComponent implements OnInit, AfterViewInit {
+  private localNewsService = inject(LocalNewsService);
+  readonly localNews = this.localNewsService.news;
   private readonly newsService = inject(NewsService);
   readonly newsList = signal<NewsItem[]>([]);
   readonly isLoading = signal(false);
@@ -67,7 +77,6 @@ export class NewsCardsListComponent implements OnInit, AfterViewInit {
       )
       .subscribe({
         next: (filteredNews) => {
-          console.log(filteredNews)
           const current = this.newsList();
           this.newsList.set([...current, ...filteredNews]);
           this.error.set(null);
@@ -78,5 +87,9 @@ export class NewsCardsListComponent implements OnInit, AfterViewInit {
           this.isLoading.set(false);
         },
       });
+  }
+
+  getImageUrl(file: File | { name: string }): string {
+    return file instanceof File ? URL.createObjectURL(file) : '';
   }
 }

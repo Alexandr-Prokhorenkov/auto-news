@@ -1,3 +1,13 @@
+<div class="local-news-wrapper">
+  @for (local of localNews(); track local.createdAt) {
+  <div class="local-news">
+    <img class="news-image" [src]="local.image" [alt]="local.title" />
+    <div class="news-date">{{ local.createdAt | formatDateRu }}</div>
+    <div class="news-title">{{ local.title }}</div>
+  </div>
+  }
+</div>
+
 <div class="news-cards-list">
   @for (item of newsList(); track item.id) {
   <app-news-card
@@ -11,8 +21,8 @@
 </div>
 
 @if(isLoading()) {
-<div class="loading" *ngIf="isLoading()">
-  <div class="spinner"></div>
+<div class="loading">
+  <app-spinner></app-spinner>
 </div>
 }
 

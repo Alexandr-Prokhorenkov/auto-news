@@ -10,11 +10,12 @@ import { NewsItem } from '../../shared/types/news.interface';
 import { NewsService } from '../../shared/api/services/news.service';
 import { FormatDateRuPipe } from "../../shared/lib/format-date-ru.pipe";
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { SpinnerComponent } from "../../shared/ui/spinner/spinner.component";
 
 @Component({
   selector: 'app-news-page',
   standalone: true,
-  imports: [FormatDateRuPipe],
+  imports: [FormatDateRuPipe, SpinnerComponent],
   templateUrl: './news-page.component.html',
   styleUrl: './news-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

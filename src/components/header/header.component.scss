@@ -14,3 +14,9 @@
   font-weight: var(--font-weight-regular);
   text-transform: uppercase;
 }
+
+.add-news-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

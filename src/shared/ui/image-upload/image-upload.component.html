@@ -1,0 +1,26 @@
+@if (previewUrl(); as url) {
+<div class="image-preview">
+  <img [src]="url" alt="Превью" />
+  <button class="remove-btn" (click)="removeImage()">
+    <img class="remove-icon" src="assets/icons/close.svg" alt="close" />
+  </button>
+</div>
+} @else {
+<div
+  class="upload-container"
+  [class.dragover]="isDragOver"
+  (click)="triggerFileInput(fileInputRef)"
+  (drop)="onDrop($event)"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave()"
+>
+  Загрузить изображение
+  <input
+    #fileInputRef
+    type="file"
+    accept="image/*"
+    hidden
+    (change)="onFileSelected($event)"
+  />
+</div>
+}

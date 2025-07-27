@@ -1,0 +1,12 @@
+<div class="modal-backdrop" (click)="onClose()"></div>
+<div class="modal">
+  <div class="modal-header">
+    <h2 class="modal-title">{{ title }}</h2>
+  </div>
+  <button class="modal-close" (click)="onClose()">
+    <img src="assets/icons/close.svg" alt="close" />
+  </button>
+  <div class="modal-content">
+    <ng-content></ng-content>
+  </div>
+</div>

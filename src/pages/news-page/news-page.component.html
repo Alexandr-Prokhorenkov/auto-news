@@ -11,6 +11,10 @@
     />
     @if (safeHtml()) {
     <p class="news-content" [innerHTML]="safeHtml()"></p>
+    } @if(isLoading()) {
+    <div class="loading">
+      <app-spinner></app-spinner>
+    </div>
     }
   </div>
 </div>

@@ -4,6 +4,26 @@
       <img src="assets/icons/logo.svg" alt="Логотип" width="60" height="60" />
     </a>
     <h1 class="header-title">Портал новостей</h1>
-    <app-add-button></app-add-button>
+    <app-add-button (clicked)="openModal()"></app-add-button>
   </div>
 </div>
+@if (isModalOpen()) {
+<app-modal [title]="'Добавить новость'" (close)="closeModal()">
+  <form class="add-news-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-text-input
+      placeholder="Заголовок"
+      [formControl]="titleControl"
+    ></app-text-input>
+    <app-text-area
+      placeholder="Текст"
+      [formControl]="textControl"
+    ></app-text-area>
+    <app-image-upload [formControl]="imageControl"></app-image-upload>
+    <app-button
+      text="Опубликовать новость"
+      type="submit"
+      [disabled]="form.invalid"
+    ></app-button>
+  </form>
+</app-modal>
+}
